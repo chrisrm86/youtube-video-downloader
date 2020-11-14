@@ -1,49 +1,3 @@
-
-"""
-import pytube
-
-# set url in a variable
-url ="https://www.youtube.com/watch?v=aMsK3ZQg2KU&ab_channel=oscardaniel"
-
-
-# Load url in function youtube
-youtube = pytube.YouTube(url)
-
-
-# set stream resolution
-video = youtube.streams.get_highest_resolution()
-
-
-# Download video
-video.download()        # in the same folder
-
-# video.download('/Downloads')      in other folder
-
-# get information of video
-video.title
-video.video_id
-video.age_restricted
-
-# streams format
-video.streams.all()
-stream = video.streams.all()
-for i in stream:
-    print(i)
-
-"""
-"""
-import pytube
-
-url = str(input('URL video: '))
-
-youtube = pytube.YouTube(url)
-video = youtube.streams.get_highest_resolution()
-video.download()
-
-
-print("Download successfully")
-input()
-"""
 import pytube
 import os 
 import sys
@@ -57,7 +11,6 @@ def download_video():
     video = youtube.streams.get_highest_resolution()
     video.download()
     print("Check if your download is ready")
-    
 
 def download_audio():
     url = str(input("URL VIDEO: "))
@@ -76,15 +29,14 @@ def quit():
 def run_program():
     print("""---------- MENÚ ---------- \n\n
     1- Descargar video
-    2- Descargar audio.
-    3- Salir.\n""")
+    2- Salir.\n""")
 
     choice = int(input("Ingrese una opción: "))
     if choice == 1:
         download_video()
+    #elif choice == 2:
+    #    download_audio()
     elif choice == 2:
-        download_audio()
-    elif choice == 3:
         quit()
     else: 
         return menu()
